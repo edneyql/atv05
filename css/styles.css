@@ -1,3 +1,4 @@
+/* Estilo no vibe do atv04: degradê, cartões compactos e botões azul/outline */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a}
 body{
@@ -58,4 +59,20 @@ button.ghost{background:#fff;border-color:#d1d5db;color:#334155}
 button:hover{filter:brightness(0.98)}
 
 /* Lists/cards */
-.lista{list-style:none;margin:0;padding:12px;dis
+.lista{list-style:none;margin:0;padding:12px;display:grid;gap:10px}
+.card{padding:12px}
+.card .muted{color:#64748b;font-size:12px}
+.card .row{display:flex;gap:8px;align-items:center;margin:0;flex-wrap:wrap}
+.tag{background:#eef2ff;border:1px solid #dbeafe;border-radius:999px;padding:2px 8px;font-size:12px;color:#1d4ed8}
+
+/* Feedback */
+.msg{margin-top:6px;font-size:13px;color:#16a34a}
+.toast{
+  position:fixed; right:16px; bottom:16px; z-index:50;
+  background:#111827; color:#fff; padding:10px 14px; border-radius:10px; box-shadow:0 8px 22px -10px rgba(0,0,0,.3)
+}
+.blink{animation:blink 800ms ease-out 1}
+@keyframes blink{0%{box-shadow:0 0 0 0 rgba(37,99,235,.4)}100%{box-shadow:0 0 0 8px rgba(37,99,235,0)}}
+
+/* Footer */
+.footer{padding:24px 0 40px 0;color:#64748b}
