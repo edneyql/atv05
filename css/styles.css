@@ -1,0 +1,21 @@
+:root { --bg:#f5f6ff; --card:#fff; --ink:#111827; --muted:#6b7280; --ring:#6c63ff; }
+*{box-sizing:border-box}
+body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto;background:linear-gradient(180deg,#f7f7fb 0%,#eef0ff 100%);color:#111827}
+.container{max-width:980px;margin:24px auto;padding:0 16px}
+.header{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:16px}
+.header h1{margin:0;font-size:1.25rem}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin:0}
+.nav a{border:1px solid #e5e7eb;background:#fff;padding:8px 12px;border-radius:10px;text-decoration:none;color:#111827}
+.card{background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06);padding:18px;margin-bottom:14px}
+.card-title{margin:0 0 8px 0;font-size:1rem}
+.result-card{margin-top:12px;border:1px solid #e5e7eb;border-radius:14px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.06);padding:14px;opacity:1;transform:translateY(0)}
+.result-title{margin:0 0 6px 0;font-size:1rem;font-weight:700}
+.result-body{font-size:.95rem;color:#1f2937}
+.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:8px;display:block;white-space:pre-wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.item{border:1px solid #e5e7eb;border-radius:12px;padding:12px;background:#fff}
+.item h3{margin:0 0 8px 0;font-size:1rem}
+.badge{display:inline-block;background:#eef2ff;border:1px solid #c7d2fe;border-radius:999px;padding:2px 8px;font-size:.8rem}
+.hide{display:none}
+.btn{display:inline-block;border:0;border-radius:10px;padding:10px 14px;cursor:pointer}
+.btn.primary{background:#2563eb;color:#fff}
