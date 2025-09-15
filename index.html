@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atv05 - Apartamentos (Frontend)</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+  <header class="container">
+    <h1>Atividade 05 — Apartamentos</h1>
+    <p class="subtitle">Frontend (HTML/CSS/JS) — Classes em JavaScript + Eventos e Assíncrono</p>
+  </header>
+
+  <main class="container grid">
+    <section>
+      <h2>Cadastrar Apartamento</h2>
+      <form id="form-apto" autocomplete="off">
+        <div class="row">
+          <label for="ed-nome">Edifício</label>
+          <input id="ed-nome" required placeholder="Ex.: Residencial Sol Nascente" />
+        </div>
+
+        <div class="row-3">
+          <div>
+            <label for="bloco">Bloco</label>
+            <input id="bloco" required placeholder="A/B/C..." />
+          </div>
+          <div>
+            <label for="andar">Andar</label>
+            <input id="andar" type="number" min="1" required placeholder="Ex.: 3"/>
+          </div>
+          <div>
+            <label for="numero">Número</label>
+            <input id="numero" type="number" min="1" required placeholder="Ex.: 302"/>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Morador</legend>
+          <div class="row-3">
+            <div>
+              <label for="nome">Nome</label>
+              <input id="nome" required placeholder="Ex.: Ana Lima"/>
+            </div>
+            <div>
+              <label for="cpf">CPF</label>
+              <input id="cpf" required placeholder="000.000.000-00"/>
+            </div>
+            <div>
+              <label for="codigo">Código de acesso</label>
+              <input id="codigo" required placeholder="Ex.: 7F4A9C"/>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit">Salvar</button>
+          <button type="button" id="btn-exemplos" class="secondary">Gerar 5 exemplos (Main)</button>
+          <button type="button" id="btn-limpar" class="ghost">Limpar lista</button>
+        </div>
+        <p id="msg" class="msg" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section>
+      <h2>Lista de Apartamentos</h2>
+      <div class="toolbar">
+        <input id="filtro" placeholder="Filtrar por nome/bloco/andar/nº..." />
+      </div>
+      <ul id="lista" class="lista"></ul>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>
+      Implementa classes: <code>Pessoa</code>, <code>Morador extends Pessoa</code>, <code>Edificio</code> e <code>Apartamento</code>.
+      A “Main” aqui é o módulo JS que instancia 5 apartamentos e chama <code>mostrarDadosApartamento()</code>.
+    </small>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
