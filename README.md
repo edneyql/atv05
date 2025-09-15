@@ -1,4 +1,4 @@
-# Atividade 05 — Frontend
+# Atividade 05 - Frontend
 
 Implementação em **HTML, CSS e JavaScript** da Atividade 05 de Frontend.  
 Foram criadas as classes **Pessoa**, **Morador** (herda de Pessoa), **Edifício** e **Apartamento**, cada uma com construtor e métodos `get`/`set`.  
