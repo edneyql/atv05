@@ -44,14 +44,17 @@ button{
   padding:10px 14px;border-radius:10px;border:1px solid #2563eb;background:#2563eb;color:#fff;cursor:pointer;font-weight:600
 }
 button.secondary{background:#fff;color:#2563eb}
+button.ghost{background:#fff;border-color:#d1d5db;color:#334155}
 button:hover{filter:brightness(0.98)}
 
 /* Lists/cards */
 .lista{list-style:none;margin:0;padding:12px;display:grid;gap:10px}
 .card{padding:12px}
-.card .muted{color:#64748b;font-size:12px}
+.card .muted{color:#64748b;font-size:12px;margin-top:6px}
 .card .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.tag{background:#eef2ff;border:1px solid #dbeafe;border-radius:999px;padding:2px 8px;font-size:12px;color:#1d4ed8}
+.tag{
+  background:#eef2ff;border:1px solid #dbeafe;border-radius:999px;padding:2px 8px;font-size:12px;color:#1d4ed8
+}
 
 /* Feedback */
 .msg{margin-top:6px;font-size:13px;color:#16a34a}
@@ -62,10 +65,34 @@ button:hover{filter:brightness(0.98)}
 .blink{animation:blink 800ms ease-out 1}
 @keyframes blink{0%{box-shadow:0 0 0 0 rgba(37,99,235,.4)}100%{box-shadow:0 0 0 8px rgba(37,99,235,0)}}
 
-/* Geral */
+/* ===== Estilo específico para Visualização Geral ===== */
 #visao-geral{display:grid;gap:20px}
-.geral-edificio{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px}
-.geral-edificio h3{margin:0 0 8px;font-size:17px}
-.geral-edificio ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
-.geral-edificio li{font-size:14px;color:#334155}
+#visao-geral .card{
+  padding:14px;border-radius:14px
+}
+#visao-geral h3{
+  font-size:17px;font-weight:700;margin:0 0 10px 0;color:#1e293b;
+  border-bottom:1px solid #e2e8f0;padding-bottom:6px
+}
+#visao-geral ul{
+  list-style:none;margin:0;padding:0;display:grid;gap:10px
+}
+#visao-geral li.card{
+  background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;
+  transition:background 0.2s ease,transform 0.15s ease
+}
+#visao-geral li.card:hover{
+  background:#f1f5f9;transform:translateY(-2px)
+}
+#visao-geral li.card .row{
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center
+}
+#visao-geral li.card .tag{
+  background:#e0f2fe;border:1px solid #bae6fd;color:#0369a1
+}
+#visao-geral li.card strong{
+  margin-left:auto;font-size:13px;color:#065f46
+}
+
+/* Footer */
 .footer{padding:24px 0 40px;color:#64748b}
