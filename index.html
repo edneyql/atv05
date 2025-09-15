@@ -3,39 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Atv05 — Apartamentos (Main com 5 instâncias)</title>
+  <title>Atv05 — Gestão de Edifícios</title>
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-  <header class="container header">
+  <header class="header container">
     <div class="topbar">
-      <h1>Atividade 05 — Apartamentos</h1>
+      <div>
+        <h1>Atividade 05 — Gestão de Edifícios</h1>
+        <p class="subtitle">Classes ES6 + get/set • Main com 5 apartamentos</p>
+      </div>
       <button class="ghost" onclick="history.back()">Voltar</button>
     </div>
-    <p class="subtitle">
-      4 classes com <strong>construtor</strong>, <strong>get</strong>/<strong>set</strong> e uma <strong>Main</strong> que cria 5 instâncias e chama
-      <code>mostrarDadosApartamento()</code> para cada uma.
-    </p>
+
+    <nav class="tabs" role="tablist" aria-label="Seções">
+      <button class="tab active" data-tab="moradores" role="tab" aria-selected="true">Moradores</button>
+      <button class="tab" data-tab="edificios" role="tab" aria-selected="false">Edifícios</button>
+      <button class="tab" data-tab="apartamentos" role="tab" aria-selected="false">Apartamentos</button>
+    </nav>
   </header>
 
   <main class="container">
-    <section class="card">
-      <h2>Saída do método <code>mostrarDadosApartamento()</code></h2>
-      <p class="muted">As mesmas saídas também são registradas no <strong>console</strong> do navegador.</p>
-      <pre id="saida" class="pre"></pre>
+    <!-- Moradores -->
+    <section id="moradores" class="panel active" role="tabpanel" aria-labelledby="tab-moradores">
+      <div class="split">
+        <aside class="pane pane-list">
+          <div class="pane-header">
+            <h2>Lista de Moradores</h2>
+            <input id="filtro-morador" placeholder="Filtrar por nome/CPF..."/>
+          </div>
+          <ul id="lista-morador" class="lista"></ul>
+        </aside>
 
-      <div class="actions">
-        <button id="btn-main">Executar Main novamente</button>
-        <button id="btn-limpar" class="secondary">Limpar saída</button>
+        <section class="pane pane-form">
+          <h2>Cadastrar/Editar Morador</h2>
+          <form id="form-morador" autocomplete="off">
+            <div class="row-2">
+              <div>
+                <label for="m-nome">Nome</label>
+                <input id="m-nome" required />
+              </div>
+              <div>
+                <label for="m-cpf">CPF</label>
+                <input id="m-cpf" required placeholder="000.000.000-00"/>
+              </div>
+            </div>
+            <div class="row">
+              <label for="m-codigo">Código de acesso</label>
+              <input id="m-codigo" required placeholder="Ex.: X7A2K9"/>
+            </div>
+            <div class="actions">
+              <button type="submit">Salvar</button>
+              <button type="button" class="secondary" id="morador-novo">Novo</button>
+            </div>
+            <p id="msg-morador" class="msg" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <!-- Edifícios -->
+    <section id="edificios" class="panel" role="tabpanel" aria-labelledby="tab-edificios">
+      <div class="split">
+        <aside class="pane pane-list">
+          <div class="pane-header">
+            <h2>Lista de Edifícios</h2>
+            <input id="filtro-edif" placeholder="Filtrar por nome..."/>
+          </div>
+          <ul id="lista-edif" class="lista"></ul>
+        </aside>
+
+        <section class="pane pane-form">
+          <h2>Cadastrar/Editar Edifício</h2>
+          <!-- Bloco é do Apartamento -->
+          <form id="form-edif" autocomplete="off">
+            <div class="row">
+              <div>
+                <label for="e-nome">Nome do Edifício</label>
+                <input id="e-nome" required />
+              </div>
+            </div>
+            <div class="actions">
+              <button type="submit">Salvar</button>
+              <button type="button" class="secondary" id="edif-novo">Novo</button>
+            </div>
+            <p id="msg-edif" class="msg" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <!-- Apartamentos -->
+    <section id="apartamentos" class="panel" role="tabpanel" aria-labelledby="tab-apartamentos">
+      <div class="split">
+        <aside class="pane pane-list">
+          <div class="pane-header">
+            <h2>Lista de Apartamentos</h2>
+            <input id="filtro-apto" placeholder="Filtrar por bloco/andar/nº/nome..."/>
+          </div>
+          <ul id="lista-apto" class="lista"></ul>
+        </aside>
+
+        <section class="pane pane-form">
+          <h2>Cadastrar/Editar Apartamento</h2>
+          <form id="form-apto" autocomplete="off">
+            <div class="row-3">
+              <div>
+                <label for="a-numero">Número</label>
+                <input id="a-numero" type="number" min="1" required />
+              </div>
+              <div>
+                <label for="a-andar">Andar</label>
+                <input id="a-andar" type="number" min="1" required />
+              </div>
+              <div>
+                <label for="a-bloco">Bloco</label>
+                <input id="a-bloco" required placeholder="A/B/C..."/>
+              </div>
+            </div>
+            <div class="row-2">
+              <div>
+                <label for="a-edif">Edifício</label>
+                <select id="a-edif" required></select>
+              </div>
+              <div>
+                <label for="a-morador">Morador</label>
+                <select id="a-morador" required></select>
+              </div>
+            </div>
+            <div class="actions">
+              <button type="submit">Salvar</button>
+              <button type="button" class="secondary" id="apto-novo">Novo</button>
+              <button type="button" id="btn-main" class="ghost">Executar Main (5 exemplos)</button>
+              <button type="button" id="btn-console" class="ghost">mostrarDadosApartamento() no console</button>
+            </div>
+            <p id="msg-apto" class="msg" aria-live="polite"></p>
+          </form>
+        </section>
       </div>
     </section>
   </main>
 
   <footer class="container footer">
-    <small>
-      Estritamente conforme o enunciado: classes <code>Pessoa</code>, <code>Morador</code> (extends <code>Pessoa</code>), 
-      <code>Edificio</code>, <code>Apartamento</code> (nº, edifício, andar, bloco, morador) e <code>Main</code> com 5 instâncias. 
-    </small>
+    <small>Modelagem fiel ao enunciado. “Vinculação” acontece naturalmente no cadastro/edição do apartamento.</small>
   </footer>
 
   <script type="module" src="js/app.js"></script>
