@@ -3,75 +3,32 @@ html,body{margin:0;padding:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Ari
 body{
   background: linear-gradient(180deg,#f4f6ff, #eef1ff 35%, #f6f7fb 100%);
 }
+
 .container{max-width:920px;margin:0 auto;padding:0 16px}
-
-/* Header */
 .header{padding:20px 0 8px}
-h1{margin:0 0 6px 0;font-size:22px;font-weight:700}
-.subtitle{margin:0 0 14px 0;color:#475569}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+h1{margin:0;font-size:22px;font-weight:700}
+.subtitle{margin:8px 0 16px 0;color:#475569}
 
-/* Tabs (sempre legíveis mesmo inativas) */
-.tabs{display:flex;gap:8px;border-bottom:1px solid #e5e7eb;padding-bottom:10px}
-.tab{
-  border:1px solid #e5e7eb;background:#fff;padding:10px 14px;border-radius:10px 10px 0 0;
-  cursor:pointer;color:#334155; font-weight:600;
-}
-.tab:hover{background:#f8fafc}
-.tab.active{
-  color:#111; background:#fff; border-bottom-color:#fff;
-  box-shadow:0 -2px 0 0 #2563eb inset;
-}
-.tab:focus-visible{outline:3px solid #93c5fd; outline-offset:2px}
-
-/* Painéis e layout dividido (lista esquerda / form direita) */
-.panel{display:none;padding:18px 0}
-.panel.active{display:block}
-.split{display:grid;grid-template-columns:340px 1fr;gap:16px}
-@media (max-width:1000px){.split{grid-template-columns:1fr}}
-
-/* “Cartões” compactos como no atv04 */
-.pane,.card{
+.card{
   background:#fff;border:1px solid #e5e7eb;border-radius:14px;
   box-shadow:0 10px 20px -12px rgba(79,70,229,0.18);
+  padding:16px
 }
-.pane-list{padding:0 0 12px 0}
-.pane-header{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:12px 12px 0 12px}
-.pane-form{padding:16px}
-h2{margin:0 0 10px 0;font-size:18px}
+h2{margin:0 0 6px 0;font-size:18px}
+.muted{color:#64748b;margin:0 0 10px 0}
 
-/* Inputs */
-.row{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:12px}
-.row-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:12px}
-.row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
-input,select{
-  width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px;background:#fff
+.pre{
+  background:#0b1020;color:#e5e7eb;border-radius:10px;
+  padding:12px;min-height:160px;white-space:pre-wrap
 }
-input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px #2563eb22}
 
-/* Botões */
-.actions{display:flex;gap:10px;margin-top:8px}
+.actions{display:flex;gap:10px;margin-top:12px}
 button{
-  padding:10px 14px;border-radius:10px;border:1px solid #2563eb;background:#2563eb;color:#fff;cursor:pointer;font-weight:600
+  padding:10px 14px;border-radius:10px;border:1px solid #2563eb;background:#2563eb;
+  color:#fff;cursor:pointer;font-weight:600
 }
 button.secondary{background:#fff;color:#2563eb}
 button.ghost{background:#fff;border-color:#d1d5db;color:#334155}
-button:hover{filter:brightness(0.98)}
 
-/* Listas e cartões mais compactos */
-.lista{list-style:none;margin:0;padding:12px;display:grid;gap:10px}
-.card{padding:12px}
-.card .muted{color:#64748b;font-size:12px}
-.card .row{display:flex;gap:8px;align-items:center;margin:0;flex-wrap:wrap}
-.tag{background:#eef2ff;border:1px solid #dbeafe;border-radius:999px;padding:2px 8px;font-size:12px;color:#1d4ed8}
-
-/* Feedback visual de ação */
-.msg{margin-top:6px;font-size:13px;color:#16a34a}
-.toast{
-  position:fixed; right:16px; bottom:16px; z-index:50;
-  background:#111827; color:#fff; padding:10px 14px; border-radius:10px; box-shadow:0 8px 22px -10px rgba(0,0,0,.3)
-}
-.blink{animation:blink 800ms ease-out 1}
-@keyframes blink{0%{box-shadow:0 0 0 0 rgba(37,99,235,.4)}100%{box-shadow:0 0 0 8px rgba(37,99,235,0)}}
-
-/* Rodapé */
 .footer{padding:24px 0 40px 0;color:#64748b}
