@@ -3,165 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Atv05 — Gestão de Edifícios</title>
+  <title>Atv05 — Apartamentos (Main com 5 instâncias)</title>
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-  <header class="header container">
-    <div style="display:flex; align-items:center; gap:12px; justify-content:space-between;">
-      <div>
-        <h1>Atividade 05 — Gestão de Edifícios</h1>
-        <p class="subtitle">Frontend (HTML/CSS/JS) — Classes ES6 + Eventos + Assíncrono</p>
-      </div>
+  <header class="container header">
+    <div class="topbar">
+      <h1>Atividade 05 — Apartamentos</h1>
       <button class="ghost" onclick="history.back()">Voltar</button>
     </div>
-
-    <nav class="tabs" role="tablist" aria-label="Seções">
-      <button class="tab active" data-tab="moradores" role="tab" aria-selected="true">Moradores</button>
-      <button class="tab" data-tab="edificios" role="tab" aria-selected="false">Edifícios</button>
-      <button class="tab" data-tab="apartamentos" role="tab" aria-selected="false">Apartamentos</button>
-      <button class="tab" data-tab="vinculos" role="tab" aria-selected="false">Vinculações</button>
-    </nav>
+    <p class="subtitle">
+      4 classes com <strong>construtor</strong>, <strong>get</strong>/<strong>set</strong> e uma <strong>Main</strong> que cria 5 instâncias e chama
+      <code>mostrarDadosApartamento()</code> para cada uma.
+    </p>
   </header>
 
   <main class="container">
-    <!-- Moradores -->
-    <section id="moradores" class="panel active" role="tabpanel" aria-labelledby="tab-moradores">
-      <div class="split">
-        <aside class="pane pane-list">
-          <div class="pane-header">
-            <h2>Lista de Moradores</h2>
-            <input id="filtro-morador" placeholder="Filtrar por nome/CPF..."/>
-          </div>
-          <ul id="lista-morador" class="lista"></ul>
-        </aside>
-
-        <section class="pane pane-form">
-          <h2>Cadastrar/Editar Morador</h2>
-          <form id="form-morador" autocomplete="off">
-            <div class="row-2">
-              <div>
-                <label for="m-nome">Nome</label>
-                <input id="m-nome" required />
-              </div>
-              <div>
-                <label for="m-cpf">CPF</label>
-                <input id="m-cpf" required placeholder="000.000.000-00"/>
-              </div>
-            </div>
-            <div class="row">
-              <label for="m-codigo">Código de acesso</label>
-              <input id="m-codigo" required placeholder="Ex.: X7A2K9"/>
-            </div>
-            <div class="actions">
-              <button type="submit">Salvar</button>
-              <button type="button" class="secondary" id="morador-novo">Novo</button>
-            </div>
-            <p id="msg-morador" class="msg" aria-live="polite"></p>
-          </form>
-        </section>
-      </div>
-    </section>
-
-    <!-- Edifícios -->
-    <section id="edificios" class="panel" role="tabpanel" aria-labelledby="tab-edificios">
-      <div class="split">
-        <aside class="pane pane-list">
-          <div class="pane-header">
-            <h2>Lista de Edifícios</h2>
-            <input id="filtro-edif" placeholder="Filtrar por nome..."/>
-          </div>
-          <ul id="lista-edif" class="lista"></ul>
-        </aside>
-
-        <section class="pane pane-form">
-          <h2>Cadastrar/Editar Edifício</h2>
-          <!-- ATENÇÃO: sem campo "Bloco"; bloco pertence ao Apartamento -->
-          <form id="form-edif" autocomplete="off">
-            <div class="row">
-              <div>
-                <label for="e-nome">Nome do Edifício</label>
-                <input id="e-nome" required />
-              </div>
-            </div>
-            <div class="actions">
-              <button type="submit">Salvar</button>
-              <button type="button" class="secondary" id="edif-novo">Novo</button>
-            </div>
-            <p id="msg-edif" class="msg" aria-live="polite"></p>
-          </form>
-        </section>
-      </div>
-    </section>
-
-    <!-- Apartamentos -->
-    <section id="apartamentos" class="panel" role="tabpanel" aria-labelledby="tab-apartamentos">
-      <div class="split">
-        <aside class="pane pane-list">
-          <div class="pane-header">
-            <h2>Lista de Apartamentos</h2>
-            <input id="filtro-apto" placeholder="Filtrar por bloco/andar/nº/nome..."/>
-          </div>
-          <ul id="lista-apto" class="lista"></ul>
-        </aside>
-
-        <section class="pane pane-form">
-          <h2>Cadastrar/Editar Apartamento</h2>
-          <form id="form-apto" autocomplete="off">
-            <div class="row-3">
-              <div>
-                <label for="a-numero">Número</label>
-                <input id="a-numero" type="number" min="1" required />
-              </div>
-              <div>
-                <label for="a-andar">Andar</label>
-                <input id="a-andar" type="number" min="1" required />
-              </div>
-              <div>
-                <label for="a-bloco">Bloco</label>
-                <input id="a-bloco" required placeholder="A/B/C..."/>
-              </div>
-            </div>
-            <div class="row-2">
-              <div>
-                <label for="a-edif">Edifício</label>
-                <select id="a-edif" required></select>
-              </div>
-              <div>
-                <label for="a-morador">Morador</label>
-                <select id="a-morador" required></select>
-              </div>
-            </div>
-            <div class="actions">
-              <button type="submit">Salvar</button>
-              <button type="button" class="secondary" id="apto-novo">Novo</button>
-            </div>
-            <p id="msg-apto" class="msg" aria-live="polite"></p>
-          </form>
-        </section>
-      </div>
-    </section>
-
-    <!-- Vinculações -->
-    <section id="vinculos" class="panel" role="tabpanel" aria-labelledby="tab-vinculos">
-      <h2>Vinculações Gerais</h2>
-      <p class="muted">Visualize todos os apartamentos e vincule <strong>moradores</strong> e <strong>edifícios</strong> que estejam pendentes.</p>
-
-      <div class="toolbar">
-        <input id="filtro-vinc" placeholder="Filtrar por nome/bloco/andar/nº...">
-      </div>
-
-      <ul id="lista-vinc" class="lista"></ul>
+    <section class="card">
+      <h2>Saída do método <code>mostrarDadosApartamento()</code></h2>
+      <p class="muted">As mesmas saídas também são registradas no <strong>console</strong> do navegador.</p>
+      <pre id="saida" class="pre"></pre>
 
       <div class="actions">
-        <button id="btn-gerar-main" class="secondary">Gerar 5 exemplos (Main)</button>
-        <button id="btn-console" class="ghost">Chamar mostrarDadosApartamento() no console</button>
+        <button id="btn-main">Executar Main novamente</button>
+        <button id="btn-limpar" class="secondary">Limpar saída</button>
       </div>
     </section>
   </main>
 
   <footer class="container footer">
-    <small>Compatível com a aula (eventos, <code>preventDefault</code>, <code>stopPropagation</code>, <code>beforeunload</code>, assíncrono com <code>async/await</code> + <code>setTimeout</code>).</small>
+    <small>
+      Estritamente conforme o enunciado: classes <code>Pessoa</code>, <code>Morador</code> (extends <code>Pessoa</code>), 
+      <code>Edificio</code>, <code>Apartamento</code> (nº, edifício, andar, bloco, morador) e <code>Main</code> com 5 instâncias. 
+    </small>
   </footer>
 
   <script type="module" src="js/app.js"></script>
