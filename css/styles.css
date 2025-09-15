@@ -5,30 +5,57 @@ body{
 }
 
 .container{max-width:920px;margin:0 auto;padding:0 16px}
+
+/* Header / Tabs */
 .header{padding:20px 0 8px}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
 h1{margin:0;font-size:22px;font-weight:700}
 .subtitle{margin:8px 0 16px 0;color:#475569}
 
-.card{
+.tabs{display:flex;gap:8px;border-bottom:1px solid #e5e7eb;padding-bottom:10px}
+.tab{
+  border:1px solid #e5e7eb;background:#fff;padding:10px 14px;border-radius:10px 10px 0 0;
+  cursor:pointer;color:#334155; font-weight:600;
+}
+.tab:hover{background:#f8fafc}
+.tab.active{
+  color:#111; background:#fff; border-bottom-color:#fff;
+  box-shadow:0 -2px 0 0 #2563eb inset;
+}
+.tab:focus-visible{outline:3px solid #93c5fd; outline-offset:2px}
+
+.panel{display:none;padding:18px 0}
+.panel.active{display:block}
+
+/* Split layout */
+.split{display:grid;grid-template-columns:340px 1fr;gap:16px}
+@media (max-width:1000px){.split{grid-template-columns:1fr}}
+
+/* Cards/containers */
+.pane,.card{
   background:#fff;border:1px solid #e5e7eb;border-radius:14px;
   box-shadow:0 10px 20px -12px rgba(79,70,229,0.18);
-  padding:16px
 }
-h2{margin:0 0 6px 0;font-size:18px}
-.muted{color:#64748b;margin:0 0 10px 0}
+.pane-list{padding:0 0 12px 0}
+.pane-header{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:12px 12px 0 12px}
+.pane-form{padding:16px}
+h2{margin:0 0 8px 0;font-size:18px}
 
-.pre{
-  background:#0b1020;color:#e5e7eb;border-radius:10px;
-  padding:12px;min-height:160px;white-space:pre-wrap
-}
+/* Inputs */
+.row{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:12px}
+.row-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:12px}
+.row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+input,select{width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px;background:#fff}
+input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px #2563eb22}
 
-.actions{display:flex;gap:10px;margin-top:12px}
+/* Buttons */
+.actions{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
 button{
-  padding:10px 14px;border-radius:10px;border:1px solid #2563eb;background:#2563eb;
-  color:#fff;cursor:pointer;font-weight:600
+  padding:10px 14px;border-radius:10px;border:1px solid #2563eb;background:#2563eb;color:#fff;cursor:pointer;font-weight:600
 }
 button.secondary{background:#fff;color:#2563eb}
 button.ghost{background:#fff;border-color:#d1d5db;color:#334155}
+button:hover{filter:brightness(0.98)}
 
-.footer{padding:24px 0 40px 0;color:#64748b}
+/* Lists/cards */
+.lista{list-style:none;margin:0;padding:12px;dis
